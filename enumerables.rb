@@ -44,8 +44,8 @@ end
 # Given an array of spicy foods, **return an array of hashes** 
 # sorted by heat level from lowest to highest
 def sort_by_heat(spicy_foods)
-  spicy_foods.sort do |fud1, fud2|
-    fud1[:heat_level]<=>fud2[:heat_level]
+  spicy_foods.sort_by do |fud1|
+    fud1[:heat_level]
   end
 end
 
@@ -53,14 +53,20 @@ end
 # the spicy foods that have a heat level greater than 5, in the following format: 
 # Buffalo Wings (American) | Heat Level: 🌶🌶🌶
 # HINT: Try to use methods you've already written to solve this!
+
 def print_spiciest_foods(spicy_foods)
-  spiciest = spicy_foods.select do |fud|
-    fud[:heat_level] > 5 
-  end
-  spiciest.map do |fud|
-  puts "#{fud[:name]} (#{fud[:cuisine]}) | Heat Level: #{"🌶"*fud[:heat_level]}"
-  end
+  spiciest = spiciest_foods(spicy_foods)
+  print_spicy_foods(spiciest)
 end
+
+# def print_spiciest_foods(spicy_foods)
+#   spiciest = spicy_foods.select do |fud|
+#     fud[:heat_level] > 5 
+#   end
+#   spiciest.map do |fud|
+#   puts "#{fud[:name]} (#{fud[:cuisine]}) | Heat Level: #{"🌶"*fud[:heat_level]}"
+#   end
+# end
 
 # given an array of spicy foods, return an integer representing 
 # the average heat level of all the spicy foods in the array
